@@ -1,0 +1,1217 @@
+/* -------------------------- OVERALL/NAVIGATION SETUP -------------------------- */
+body {
+    margin: 0;
+    background-color: #fcfbea;
+}
+
+.page {
+    margin: 0 auto;
+    position: relative;
+    height: 550px;
+    width: 1000px;
+    overflow: hidden;
+    border: 4px solid black;
+    border-radius: 10px;
+}
+
+.navigation {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.button {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: blue;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: rgb(0, 0, 146)}
+
+.button_disabled {
+    display: block;
+    opacity: .8;
+    color: white;
+    background-color: grey;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.pgcount {
+    line-height: 30px; }
+
+
+/* -------------------------- PAGE 1 (index.html) -------------------------- */
+#pg1title {
+    font-weight: bold;
+    position: absolute;
+    width: 450px;
+    height: 300px;
+    top: 100px;
+    left: 470px;
+    z-index: 3;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.4;
+    border-radius: 10px;
+    font-size: 70px;
+    opacity: 0;
+    animation: pg1title_fadein 3s forwards 0s;
+} 
+
+#pg1text {
+    font-weight: bold;
+    position: absolute;
+    width: 280px;
+    height: 10px;
+    top: 460px;
+    left: 70px;
+    z-index: 3;
+    background-color: white;
+    opacity: .85;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    line-height: 10px;
+    border-radius: 10px;
+} 
+
+.page1 {
+    background: url("bbb.1c\ -\ background\ tile.png") repeat top left / auto 100%;
+}
+
+#pg1house {
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: -75px;
+    z-index: 1;
+    opacity:1;
+}
+
+/*clip-path to make only house part of image hoverable*/
+#pg1house_full {
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: -75px;
+    z-index: 2;
+    opacity: 0;
+    clip-path: polygon(12% 11%, 62% 11%, 62% 75%, 12% 75%);
+}
+
+#pg1house_full:hover {
+    opacity: 1; }
+
+@keyframes pg1title_fadein {
+    100% {opacity: .85;} }
+
+
+/* -------------------------- PAGE 2 -------------------------- */
+.page2 {
+    background: url("sky.png") repeat top left / auto 100%;
+}
+
+#pg2text {
+    position: absolute;
+    width: 450px;
+    height: 135px;
+    top: 20px;
+    left: 490px;
+    z-index: 3;
+    background-color: white;
+    opacity: .85;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.4;
+    border-radius: 10px;
+} 
+
+#pg2road {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
+
+#pg2car {
+    position: absolute;
+    top: 380px;
+    left: 950px;
+    z-index: 3;
+    width: 280px;
+    animation: pg2drive linear 6s forwards 0s;
+}
+
+#pg2cloud {
+    position: absolute;
+    top: 35px;
+    left: 260px;
+    z-index: 0;
+    width: 180px;
+}
+
+#pg2birds {
+    position: absolute;
+    top: 195px;
+    left: 95px;
+    width: 90px;
+    z-index: 1;
+    animation: pg2birds_fly 3s linear forwards 2s;
+}
+
+@keyframes pg2drive {
+    /* drives across screen--rotate makes it curve with the road*/
+    10% {transform: translate(-120px, -10px) rotate(4deg);}
+    20% {transform: translate(-240px, -20px) rotate(3deg);}
+    30% {transform: translate(-360px, -30px) rotate(30deg);}
+    40% {transform: translate(-480px, -40px) rotate(1deg);}
+    50% {transform: translate(-600px, -45px) rotate(0deg);}
+    60% {transform: translate(-720px, -45px) rotate(-1deg);}
+    70% {transform: translate(-840px, -45px) rotate(-2deg);}
+    80% {transform: translate(-960px, -40px) rotate(-3deg);}
+    90% {transform: translate(-1080px, -35px) rotate(-4deg);}
+    100% {transform: translate(-1200px, -30px) rotate(-5deg);}
+}
+
+@keyframes pg2birds_fly {
+    /* makes birds fly in a zig-zag pattern*/
+    20% {transform: translate(100px,-90px);}
+    40% {transform: translate(200px, -40px);}
+    100% {transform: translate(600px, -300px);} }
+
+
+/* -------------------------- PAGE 3 -------------------------- */
+.page3 {
+    background: url("bbb.1c\ -\ background\ tile.png") repeat top left / auto 100%; }
+
+/* wrapps the text so that it can be floated (shape outside) */
+#pg3wrapper {
+    position: absolute;
+    margin: 20px;
+    top:0;
+    right:0;
+    width: 680px;
+    z-index: 5;
+}
+
+#pg3text {
+    position: relative;
+    margin-top: 0;
+    margin-left: 192px;
+}
+
+/* ellipse that shape-outside goes around */
+#pg3tree_outline {
+    float: left;
+    height: 400px;
+    width: 550px;
+    opacity: .3;
+    clip-path: ellipse(50% 40% at 50% 50%);
+    shape-outside: ellipse(50% 40% at 50% 50%);
+}
+
+#pg3house {
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+#pg3car {
+    width: 330px;
+    position: absolute;
+    bottom: -10px;
+    right: -200px;
+    z-index: 2;
+    animation-name: pg3move_car;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+#pg3car_door {
+  position: absolute;
+  width: 330px;
+  bottom: -10px;
+  right: 100px;
+  opacity: 0;
+  z-index: 3;
+  animation-name: fadein;
+  animation-duration: .5s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+/* FORMAT FOR ANIMATIONS SHORTHAND: name duration timing direction delay*/
+
+#pg3person1a {
+    position: absolute;
+    height: 220px;
+    bottom: 20px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 2.5s,
+        pg3person_move 2s forwards 3.5s,
+        fadeout .5s forwards 5.5s;
+}
+
+#pg3person2 {
+    position: absolute;
+    height: 200px;
+    bottom: 20px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 3.8s,
+        pg3person_move 2s forwards 4.8s,
+        fadeout .5s forwards 6.8s;
+}
+
+#pg3person3 {
+    position: absolute;
+    height: 200px;
+    bottom: 20px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 5.1s,
+        pg3person_move 2s forwards 6.1s,
+        fadeout .5s forwards 8.1s;
+}
+
+#pg3person4 {
+    position: absolute;
+    height: 210px;
+    bottom: 20px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 6.4s,
+        pg3person_move 2s forwards 7.4s,
+        fadeout .5s forwards 9.4s;
+}
+
+#pg3person5 {
+    position: absolute;
+    height: 200px;
+    bottom: 20px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 7.7s,
+        pg3person_move 2s forwards 8.7s,
+        fadeout .5s forwards 10.7s;
+}
+
+#pg3person6 {
+    position: absolute;
+    height: 150px;
+    bottom: 20px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 9s,
+        pg3person_move 2s forwards 10s,
+        fadeout .5s forwards 12s;
+}
+
+#pg3person7 {
+    position: absolute;
+    height: 130px;
+    bottom: 20px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 10.3s,
+        pg3person_move 2s forwards 11.3s,
+        fadeout .5s forwards 13.3s;
+}
+
+#pg3person8 {
+    position: absolute;
+    height: 120px;
+    bottom: 20px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 11.6s,
+        pg3person_move 2s forwards 12.6s,
+        fadeout .5s forwards 14.6s;
+}
+
+#pg3dog {
+    position: absolute;
+    height: 80px;
+    bottom: 40px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 12.9s,
+        pg3person_move 2s forwards 13.9s,
+        fadeout .5s forwards 15.9s;
+}
+
+#pg3cat {
+    position: absolute;
+    height: 80px;
+    bottom: 40px;
+    right: 250px;
+    opacity: 0;
+    z-index: 5;
+
+    animation: fadein 1s forwards 14.2s,
+        pg3person_move 2s forwards 15.2s,
+        fadeout .5s forwards 17.2s;
+}
+
+/*sizes of the people in the windows--big or small*/
+#pg3img_window_big {
+    height: 150px; }
+
+#pg3img_window_small {
+    height: 80px; }
+
+.pg3window {
+    position: absolute;
+    z-index: 4;
+    overflow: hidden;
+    opacity: 0;
+    transform: rotate(5deg);
+}
+
+#pg3person1a_window {
+    height: 150px;
+    left: 120px;
+    top: 270px;
+    transform: scaleX(-1);
+    animation: fadein .5s forwards 5.2s; 
+}
+
+/*clip-path cuts off lower half*/
+#pg3person2b_window {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%);
+    left: 295px;
+    top: 290px;
+    animation: fadein .5s forwards 7s; 
+}
+
+#pg3person3b_window {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%);
+    left: 340px;
+    top: 292px;
+    animation: fadein .5s forwards 8.3s;
+}
+
+#pg3person4b_window {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%);
+    left: 310px;
+    top: 115px;
+    animation: fadein .5s forwards 9.6s;
+}
+
+#pg3person5b_window {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 30%, 0% 30%);
+    left: 335px;
+    top: 130px;
+    animation: fadein .5s forwards 10.9s;
+}
+
+
+#pg3person6b_window {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% 40%);
+    left: 330px;
+    top: 320px;
+    animation: fadein .5s forwards 12.2s;
+}
+
+#pg3person7b_window {
+    height: 90px;
+    left: 165px;
+    top: 310px;
+    animation: fadein .5s forwards 13.5s;
+}
+
+#pg3person8b_window {
+    height: 90px;
+    left: 444px;
+    top: 315px;
+    animation: fadein .5s forwards 14.8s;
+}
+
+#pg3dog_window {
+    height: 90px;
+    left: 165px;
+    top: 360px;
+    animation: fadein .5s forwards 16.1s;
+}
+
+#pg3cat_window {
+    height: 90px;
+    left: 400px;
+    top: 360px;
+    animation: fadein .5s forwards 17.4s;
+}
+
+
+@keyframes pg3move_car {
+    100% {transform: translateX(-300px); } }
+
+@keyframes fadein {
+    100% { opacity: 1; } }
+
+@keyframes pg3person_move {
+    100% { transform: translate(-330px,-80px);} }
+
+@keyframes fadeout {
+    100% { opacity: 0; } }
+
+/* -------------------------- PAGE 4 -------------------------- */
+#pg4text {
+    position: absolute;
+    width: 505px;
+    height: 135px;
+    top: 10px;
+    left: 250px;
+    z-index: 3;
+    background-color: white;
+    opacity: .85;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.1;
+    border-radius: 10px;
+} 
+
+#pg4house {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 420px;
+    z-index: 1;
+}
+
+#pg4wiseman {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 550px;
+}
+
+#pg4car_door {
+    position: absolute;
+    top: 180px;
+    left: 300px;
+    width: 150px;
+    z-index: 3;
+    opacity: 1;
+
+    animation: fadeout 1s forwards 2s,
+    pg4drive 5s forwards 3s,
+    fadein 1s forwards 8.5s;
+}
+
+#pg4car {
+    position:absolute;
+    top: 180px;
+    left: 300px;
+    width: 150px;
+    z-index: 2;
+    opacity: 1;
+
+    animation: pg4drive 5s linear forwards 3s;
+}
+
+#pg4person1a {
+    position: absolute;
+    top: 120px;
+    left: 230px;
+    height: 90px;
+    z-index: 4;
+    opacity: 0;
+    transform: scaleX(-1);
+
+    animation: fadein 1s forwards 0s,
+        pg4person_move 1s forwards 1s,
+        fadeout 1s forwards 2s;
+}
+
+#pg4person1a_talking {
+    position: absolute;
+    z-index: 5;
+    top: 275px;
+    left: 365px;
+    height: 260px;
+    transform: scaleX(-1);
+    opacity: 0;
+
+    animation: fadein .5s forwards 9.5s,
+    pg4person_move2 1.5s forwards 10s;
+}
+
+/*from house to car*/
+@keyframes pg4person_move {
+    100% {transform: translate(120px, 40px);} }
+
+/*moves car in a "Z" like pattern*/
+@keyframes pg4drive {
+    30% {transform: translate(150px, 0px);}
+    60% {transform: translate(-280px, 235px ) scale(2.5);}
+    62% {transform: scaleX(-1) translate(280px, 235px ) scale(2.5);}
+    100% {transform: scaleX(-1) translate(10px, 235px) scale(2.5);} }
+
+/*gets out of the car*/
+@keyframes pg4person_move2 {
+    100% {transform: scaleX(-1) translate(-230px);} }
+
+
+/* -------------------------- PAGE 5 -------------------------- */
+.text {
+    position: absolute;
+    background-color: white;
+    opacity: .85;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.4;
+    border-radius: 10px;
+}
+
+#pg5text1 {
+    width: 450px;
+    height: 75px;
+    top: 20px;
+    left: 490px;
+    z-index: 3;
+}
+
+#pg5text2 {
+    width: 380px;
+    height: 45px;
+    top: 435px;
+    left: 180px;
+    z-index: 3;
+}
+
+#pg5house {
+    position: absolute;
+    z-index: 0;
+    top: 80px;
+    left: 0px;
+    width: 560px;
+}
+
+#pg5house_animals {
+    position: absolute;
+    z-index: 1;
+    top: 80px;
+    left: 0px;
+    width: 560px;
+    opacity: 0;
+    animation: fadein 1s forwards 12s;
+}
+
+#pg5barn {
+    position: absolute;
+    z-index: 2;
+    top: 130px;
+    right: 0px;
+    width: 570px;
+}
+
+#pg5barn_open {
+    position: absolute;
+    z-index: 3;
+    top: 130px;
+    right: 0px;
+    width: 570px;
+    opacity: 0;
+    animation: fadein 1s forwards 1s,
+    fadeout 1s forwards 10.5s;
+}
+
+#pg5person1a {
+    position: absolute;
+    top: 260px;
+    left: 790px;
+    height: 170px;
+    z-index: 4;
+    animation: pg5person_move1 2s forwards 0s,
+    pg5person_move2 2.5s linear forwards 9.5s,
+    fadeout 1s forwards 12s;
+}
+
+#pg5cow {
+    position: absolute;
+    top: 280px;
+    left: 705px;
+    height: 130px;
+    z-index: 10;
+    opacity: 0;
+    animation: fadein .5s forwards 2s,
+    pg5animals_move 2.5s linear forwards 2.5s,
+    fadeout 1s forwards 5s;
+}
+
+#pg5goat {
+    position: absolute;
+    top: 295px;
+    left: 710px;
+    height: 115px;
+    z-index: 9;
+    opacity: 0;
+    animation: fadein .5s forwards 3s,
+    pg5animals_move 2.5s linear forwards 3.5s,
+    fadeout 1s forwards 6s;
+}
+
+.pg5chicken {
+    position: absolute;
+    height: 75px;
+    top: 330px;
+    left: 710px;
+    opacity: 0;
+}
+
+#pg5chicken1 {
+    z-index: 8;
+    animation: fadein .5s forwards 4s,
+    pg5animals_move 2.5s linear forwards 4.5s,
+    fadeout 1s forwards 7s;
+}
+
+#pg5pig {
+    position: absolute;
+    top: 310px;
+    left: 710px;
+    height: 100px;
+    z-index: 7;
+    opacity: 0;
+    animation: fadein .5s forwards 5s,
+    pg5animals_move 2.5s linear forwards 5.5s,
+    fadeout 1s forwards 8s;
+}
+
+#pg5chicken2 {
+    z-index: 6;
+    animation: fadein .5s forwards 6s,
+    pg5animals_move 2.5s linear forwards 6.5s,
+    fadeout 1s forwards 9s;
+}
+
+#pg5chicken3 {
+    z-index: 5;
+    animation: fadein .5s forwards 7s,
+    pg5animals_move 2.5s linear forwards 7.5s,
+    fadeout 1s forwards 10s;
+}
+
+#pg5chicken4 {
+    z-index: 4;
+    animation: fadein .5s forwards 8s,
+    pg5animals_move 2.5s linear forwards 8.5s,
+    fadeout 1s forwards 11s;
+}
+
+/*house to barn*/
+@keyframes pg5person_move1 {
+    100% {transform: translate(65px,35px);} }
+
+@keyframes pg5animals_move {
+    50% {transform: translate(-265px,0px);}
+    100% {transform: translate(-420px,-60px);} }
+
+/*barn to house*/
+@keyframes pg5person_move2 {
+    50% {transform: translate(-285px,0px);}
+    100% {transform: translate(-480px,-60px);} }
+
+
+/* -------------------------- PAGE 6 -------------------------- */
+#kitchen {
+    position: absolute;
+    left: 170px;
+    height: 550px;
+    z-index: 2;
+}
+
+/*hopping chicken*/
+#pg6chicken1 {
+    position: absolute;
+    top: 25px;
+    left: 670px;
+    height: 100px;
+    z-index: 3;
+
+    animation: pg6chicken_hop .5s alternate forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+/*pecking chicken*/
+#pg6chicken2 {
+    position: absolute;
+    top: 40px;
+    left: 680px;
+    height: 100px;
+    z-index: 4;
+
+    animation: pg6chicken_peck .2s alternate forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+/*bouncing chicken*/
+#pg6chicken3 {
+    position: absolute;
+    top: 100px;
+    left: 390px;
+    height: 100px;
+    z-index: 4;
+
+    animation: pg6chicken_bounce .3s alternate forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+/*flying chicken*/
+#pg6chicken4 {
+    position: absolute;
+    left: 170px;
+    top: 210px;
+    height: 100px;
+    z-index: 5;
+    animation: pg6chicken_fly 3s linear forwards 0s;
+    animation-iteration-count: infinite;
+}
+
+#pg6mouse {
+    position: absolute;
+    left: 1050px;
+    bottom: 10px;
+    height: 25px;
+    z-index: 3;
+    animation: pg6animals_running 4s linear 0s;
+    animation-iteration-count: infinite;
+}
+
+#pg6cat {
+    position: absolute;
+    left: 1050px;
+    bottom: 10px;
+    height: 65px;
+    z-index: 3;
+    animation: pg6animals_running 4s linear .25s;
+    animation-iteration-count: infinite;
+}
+
+#pg6dog {
+    position: absolute;
+    left: 1050px;
+    bottom: 10px;
+    height: 85px;
+    z-index: 3;
+    animation: pg6animals_running 4s linear .5s;
+    animation-iteration-count: infinite;
+}
+
+.text {
+    position: absolute;
+    background-color: white;
+    opacity: .85;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.3;
+    border-radius: 10px;
+}
+
+#pg6text1 {
+    width: 150px;
+    height: 190px;
+    top: 140px;
+    left: 20px;
+    z-index: 3;
+}
+
+#pg6text2 {
+    width: 190px;
+    height: 270px;
+    top: 140px;
+    right: 145px;
+    z-index: 3;
+}
+
+@keyframes pg6chicken_hop {
+    100% {transform: translate(0px,-20px);} }
+
+@keyframes pg6chicken_peck {
+    100% {transform: rotate(10deg);} }
+
+@keyframes pg6chicken_bounce {
+    100% {transform: rotate(6deg);} }
+
+@keyframes pg6chicken_fly {
+    19%  { transform: translate(120px, -120px); }
+    20%  { transform: translate(120px, -120px) rotateY(180deg); }
+    39%  { transform: translate(80px, -215px) rotateY(180deg); }
+    40%  { transform: translate(80px, -215px); }
+    59%  { transform: translate(-30px, -190px); }
+    60%  { transform: translate(-30px, -190px) rotateY(180deg); }
+    79%  { transform: translate(-45px, -110px) rotateY(180deg); }
+    80%  { transform: translate(-45px, -110px); }
+    99%  { transform: translate(0px, 0px); }
+    100% { transform: translate(0px, 0px) rotateY(180deg); }
+}
+
+@keyframes pg6animals_running {
+    0%   { transform: translate(0px, 0px); }
+    45%  { transform: translate(-1200px, 0px); }
+    50%  { transform: translate(-1200px, -130px) scaleX(-1); z-index: 1; }
+    95%  { transform: translate(0px, -130px) scaleX(-1); z-index: 1; }
+    100% { transform: translate(0px, 0px); }
+}
+
+
+/* -------------------------- PAGE 7 -------------------------- */
+#pg7text {
+    position: absolute;
+    width: 450px;
+    height: 135px;
+    top: 10px;
+    left: 290px;
+    z-index: 3;
+    background-color: white;
+    opacity: .85;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.2;
+    border-radius: 10px;
+} 
+
+#pg7house {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 420px;
+    z-index: 1;
+}
+
+#pg7wiseman {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 550px;
+}
+
+#pg7car_door {
+    position: absolute;
+    top: 180px;
+    left: 300px;
+    width: 150px;
+    z-index: 3;
+    opacity: 1;
+
+    animation: fadeout 1s forwards 2s,
+    pg7drive 5s forwards 3s,
+    fadein 1s forwards 8.5s;
+}
+
+#pg7car {
+    position:absolute;
+    top: 180px;
+    left: 300px;
+    width: 150px;
+    z-index: 2;
+    opacity: 1;
+    animation: pg7drive 5s linear forwards 3s;
+}
+
+#pg7person1a {
+    position: absolute;
+    top: 120px;
+    left: 230px;
+    height: 90px;
+    z-index: 4;
+    opacity: 0;
+    transform: scaleX(-1);
+
+    animation: fadein 1s forwards 0s,
+        pg7person_move 1s forwards 1s,
+        fadeout 1s forwards 2s;
+}
+
+#pg7person1a_talking {
+    position: absolute;
+    z-index: 5;
+    top: 275px;
+    left: 365px;
+    height: 260px;
+    transform: scaleX(-1);
+    opacity: 0;
+    animation: fadein .5s forwards 9.5s,
+    pg7person_move2 1.5s forwards 10s;
+}
+
+@keyframes pg7person_move {
+    100% {transform: translate(120px, 40px);} }
+
+@keyframes pg7drive {
+    30% {transform: translate(150px, 0px);}
+    60% {transform: translate(-280px, 235px ) scale(2.5);}
+    62% {transform: scaleX(-1) translate(280px, 235px ) scale(2.5);}
+    100% {transform: scaleX(-1) translate(10px, 235px) scale(2.5);} }
+
+@keyframes pg7person_move2 {
+    100% {transform: scaleX(-1) translate(-230px);} }
+
+
+/* -------------------------- PAGE 8 -------------------------- */
+#pg8text1 {
+    width: 430px;
+    height: 75px;
+    top: 20px;
+    left: 510px;
+    z-index: 3;
+}
+
+#pg8text2 {
+    width: 380px;
+    height: 45px;
+    top: 435px;
+    left: 180px;
+    z-index: 3;
+}
+
+#pg8house {
+    position: absolute;
+    z-index: 1;
+    top: 65px;
+    left: 0px;
+    width: 560px;
+    opacity: 0;
+    animation: fadein 1s forwards 12s;
+}
+
+#pg8house_animals {
+    position: absolute;
+    z-index: 0;
+    top: 80px;
+    left: 0px;
+    width: 560px;
+}
+
+#pg8barn {
+    position: absolute;
+    z-index: 2;
+    top: 130px;
+    right: 0px;
+    width: 570px;
+}
+
+#pg8barn_open {
+    position: absolute;
+    z-index: 3;
+    top: 130px;
+    right: 0px;
+    width: 570px;
+    opacity: 0;
+    animation: fadein 1s forwards 1s,
+    fadeout 1s forwards 12s;
+}
+
+#pg8person1a {
+    position: absolute;
+    top: 260px;
+    left: 790px;
+    height: 170px;
+    z-index: 12;
+    animation: pg8person_move1 2s forwards 0s,
+    pg8person_move2 2.5s linear forwards 9.5s,
+    fadeout 1s forwards 12s;
+}
+
+#pg8cow {
+    position: absolute;
+    top: 230px;
+    left: 280px;
+    height: 130px;
+    z-index: 10;
+    opacity: 1;
+    transform: scaleX(-1);
+    animation: fadein .5s forwards 2s,
+    pg8animals_move 2.5s linear forwards 2.5s,
+    fadeout 1s forwards 5s;
+}
+
+#pg8goat {
+    position: absolute;
+    top: 230px;
+    left: 280px;
+    height: 115px;
+    z-index: 9;
+    opacity: 0;
+    transform: scaleX(-1);
+    animation: fadein .5s forwards 3s,
+    pg8animals_move 2.5s linear forwards 3.5s,
+    fadeout 1s forwards 6s;
+}
+
+.pg8chicken {
+    position: absolute;
+    height: 75px;
+    top: 280px;
+    left: 320px;
+    opacity: 0;
+    transform: scaleX(-1);
+}
+
+#pg8chicken1 {
+    z-index: 8;
+    animation: fadein .5s forwards 4s,
+    pg8animals_move 2.5s linear forwards 4.5s,
+    fadeout 1s forwards 7s;
+}
+
+#pg8pig {
+    position: absolute;
+    top: 260px;
+    left: 280px;
+    height: 100px;
+    z-index: 7;
+    opacity: 0;
+    transform: scaleX(-1);
+    animation: fadein .5s forwards 5s,
+    pg8animals_move 2.5s linear forwards 5.5s,
+    fadeout 1s forwards 8s;
+}
+
+#pg8chicken2 {
+    z-index: 6;
+    animation: fadein .5s forwards 6s,
+    pg8animals_move 2.5s linear forwards 6.5s,
+    fadeout 1s forwards 9s;
+}
+
+#pg8chicken3 {
+    z-index: 5;
+    animation: fadein .5s forwards 7s,
+    pg8animals_move 2.5s linear forwards 7.5s,
+    fadeout 1s forwards 10s;
+}
+
+#pg8chicken4 {
+    z-index: 4;
+    animation: fadein .5s forwards 8s,
+    pg8animals_move 2.5s linear forwards 8.5s,
+    fadeout 1s forwards 11s;
+}
+
+/*house to barn*/
+@keyframes pg8person_move1 {
+    100% {transform: translate(65px,35px);} }
+
+@keyframes pg8animals_move {
+    50% {transform: scaleX(-1) translate(-180px, 50px);}
+    100% {transform: scaleX(-1) translate(-390px, 50px);} }
+
+/*barn to house*/
+@keyframes pg8person_move2 {
+    50% {transform: translate(-285px,0px);}
+    100% {transform: translate(-480px,-60px);} }
+
+
+/* -------------------------- PAGE 9 -------------------------- */
+#pg9text {
+    position: absolute;
+    width: 460px;
+    height: 155px;
+    top: 20px;
+    left: 470px;
+    z-index: 3;
+    background-color: white;
+    opacity: .85;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.4;
+    border-radius: 10px;
+} 
+
+.page9 {
+    background: url("bbb.1c\ -\ background\ tile.png") repeat top left / auto 100%;
+}
+
+#pg9house {
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+#pg9car {
+    width: 330px;
+    position: absolute;
+    bottom: -10px;
+    right: 100px;
+    z-index: 2;
+}
+
+#pg9cloud {
+    width: 200px;
+    position: absolute;
+    top: 190px;
+    left: 1050px;
+    z-index: 0;
+    animation: pg6cloud_move 20s linear 0s;
+    animation-iteration-count: infinite;
+}
+
+#pg9birds {
+    position: absolute;
+    top: 195px;
+    left: 595px;
+    width: 90px;
+    z-index: 0;
+    animation: pg9birds_fly 3s linear alternate 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pg6cloud_move {
+    45%  { transform: translate(-1400px, 0px); }
+    50%  { transform: translate(-1400px, -170px); }
+    95%  { transform: translate(0px, -170px);}
+    100% { transform: translate(0px, 0px); }
+}
+
+@keyframes pg9birds_fly {
+    20% {transform: translate(100px,-90px);}
+    40% {transform: translate(200px, -40px);}
+    100% {transform: translate(600px, -300px);}
+}
